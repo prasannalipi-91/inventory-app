@@ -34,7 +34,7 @@ function App() {
       {images.length > 0 ? (
         images.map((image, index) => <ImageCard key={index} image={image} />)
       ) : (
-        <p>Nothing Selected</p>
+        <p>Nothing Selected prasanna</p>
       )}
     </div>
   );
