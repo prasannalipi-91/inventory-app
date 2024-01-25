@@ -1,18 +1,20 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Container } from 'react-bootstrap';
 
-const Tablecomponent = ({ value }) => {
+const Tablecomponent = ({ item }) => {
   return (
-    <Table striped bordered hover>
-      <tbody className="mt-0">
-        {value.map((element, index) => (
-          <tr>
-            <td>{element.urls.small}</td>
-            <td>{element.title}</td>
-          </tr>
-        ))}
-      </tbody>
-    </Table>
+    <Container className="mt-2">
+      <Table striped bordered hover>
+        <tbody className="mt-0">
+          {item.map((element, index) => (
+            <tr>
+              <td>{element.id}</td>
+              <td>{element.message}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </Container>
   );
 };
 

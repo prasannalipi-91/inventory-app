@@ -9,18 +9,16 @@ const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
 
 function App() {
   const [word, setWord] = useState('');
-  const [images, setImages] = useState([]);
+  const [items, setItems] = useState([]);
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     console.log(word);
-    fetch(
-      `https://api.unsplash.com//photos/random/?query=${word}&client_id=${UNSPLASH_KEY}`,
-    )
+    fetch(`http://127.0.0.1:5000/api/data`)
       .then((res) => res.json())
       .then((data) => {
-        setImages([{ ...data, title: word }, ...images]);
-        console.log(images);
+        setItems(data, ...items);
+        console.log(items);
       })
       .catch((err) => {
         console.log(err);
@@ -29,10 +27,10 @@ function App() {
   };
   return (
     <div className="App">
-      <Header title="Images Gallery" />
+      <Header title="Inventory Tool" />
       <Search word={word} setWord={setWord} handleSubmit={handleSearchSubmit} />
-      {images.length > 0 ? (
-        images.map((image, index) => <ImageCard key={index} image={image} />)
+      {items.length > 0 ? (
+        <Tablecomponent item={items} />
       ) : (
         <p>Nothing Selected prasanna</p>
       )}
