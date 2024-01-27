@@ -8,8 +8,11 @@ const Tablecomponent = ({ item }) => {
         <tbody className="mt-0">
           {item.map((element, index) => (
             <tr>
-              <td>{element.id}</td>
-              <td>{element.message}</td>
+              <td>{element.NAME}</td>
+              <td>{element.DESCR}</td>
+              <td>{element.PID}</td>
+              <td>{element.VID}</td>
+              <td>{element.SN}</td>
             </tr>
           ))}
         </tbody>
