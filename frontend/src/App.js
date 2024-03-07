@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header.js';
-import Search from './components/Search.js';
-import ImageCard from './components/ImageCard.js';
-import Tablecomponent from './components/Table.js';
-
-const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
+//import Search from './components/Search.js';
+//import ImageCard from './components/ImageCard.js';
+//import Tablecomponent from './components/Table.js';
+import CustomizedTables from './components/muitable.js';
+import Selections from './components/Searchui.js';
 
 function App() {
   const [word, setWord] = useState('');
@@ -28,9 +28,13 @@ function App() {
   return (
     <div className="App">
       <Header title="Inventory Tool" />
-      <Search word={word} setWord={setWord} handleSubmit={handleSearchSubmit} />
+      <Selections
+        word={word}
+        setWord={setWord}
+        handleSubmit={handleSearchSubmit}
+      />
       {items.length > 0 ? (
-        <Tablecomponent item={items} />
+        <CustomizedTables item={items} />
       ) : (
         <p>Nothing Selected prasanna</p>
       )}
