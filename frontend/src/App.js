@@ -36,7 +36,7 @@ function App() {
       {items.length > 0 ? (
         <CustomizedTables item={items} />
       ) : (
-        <p>Nothing Selected prasanna</p>
+        <p>Please Select the Feature</p>
       )}
     </div>
   );
